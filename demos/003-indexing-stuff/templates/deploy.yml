@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-{{ .Iteration }}-{{ .Replica }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-{{ .Iteration }}-{{ .Replica }}
+  template:
+    metadata:
+      labels:
+        app: nginx-{{ .Iteration }}-{{ .Replica }}
+    spec:
+      containers:
+      - image: quay.io/cloud-bulldozer/nginx:latest
+        name: nginx
+        volumeMounts:
+        - name: secret
+          mountPath: /mounted-secret
+      volumes:
+      - name: secret
+        secret:
+          secretName: secret-{{ .JobName }}-{{ .Iteration }}

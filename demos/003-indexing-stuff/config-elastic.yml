@@ -1,0 +1,36 @@
+---
+global:
+  gc: true
+  indexerConfig:
+    esServers: ["{{.ES_SERVER}}"]
+    defaultIndex: kube-burner
+    type: elastic
+  measurements:
+    - name: podLatency
+      thresholds:
+        - conditionType: Ready
+          metric: P99
+          threshold: 10s
+jobs:
+  - name: index-stuff
+    namespace: index-stuff
+    jobIterations: 180
+    qps: 2
+    burst: 2
+    namespacedIterations: false
+    waitWhenFinished: true
+    preLoadImages: true
+    preLoadPeriod: 10s
+    namespaceLabels:
+      security.openshift.io/scc.podSecurityLabelSync: false
+      pod-security.kubernetes.io/enforce: privileged
+      pod-security.kubernetes.io/audit: privileged
+      pod-security.kubernetes.io/warn: privileged
+    objects:
+
+      - objectTemplate: templates/deploy.yml
+        replicas: 2
+
+      - objectTemplate: templates/secret.yml
+        replicas: 1
+

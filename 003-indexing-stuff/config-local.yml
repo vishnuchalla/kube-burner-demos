@@ -2,7 +2,8 @@
 global:
   gc: true
   indexerConfig:
-    type: local
+    type: local             # Indexer type
+    createTarball: true     # Create tarball with metrics
   measurements:
     - name: podLatency
       thresholds:

@@ -1,0 +1,26 @@
+---
+global:
+  gc: false                      # Garbage collection
+jobs:
+  - name: kube-burner-demo       # job name
+    namespace: kube-burner-demo  # namespace prefix
+    jobIterations: 10            # number of job iterations
+    qps: 5                       # API request rate
+    burst: 5
+    namespacedIterations: true   # Create a new namespace per job iteration
+    waitWhenFinished: true       # Wait for pods to be running before finishing the job
+    preLoadImages: true          # Preload pod images
+    preLoadPeriod: 10s
+    cleanup: true                # Cleanup resources from previous runs
+    namespaceLabels:             # Add additional labels to the created namespaces
+      security.openshift.io/scc.podSecurityLabelSync: false
+      pod-security.kubernetes.io/enforce: privileged
+      pod-security.kubernetes.io/audit: privileged
+      pod-security.kubernetes.io/warn: privileged
+    objects:
+
+      - objectTemplate: templates/deploy.yml
+        replicas: 10
+        inputVars:
+          podReplicas: 1 
+          image: quay.io/cloud-bulldozer/nginx:latest

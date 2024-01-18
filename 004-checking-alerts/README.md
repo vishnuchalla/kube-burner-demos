@@ -28,18 +28,21 @@ kube-burner check-alerts -a alerts.yml -u ${PROM_URL} -t ${TOKEN}
 ```
 
 Reboot a node
+
 ```shell
 oc debug node/<node> 
 chroot /host reboot
 ```
 
 Go to the console and check for some of the expressions defined in alerts.yml
-```
+
+```shell
 $ oc whoami --show-console
 up{} == 0
 ```
 
 Re-run check-alerts
-```
+
+```shell
 kube-burner check-alerts -a alerts.yml -u ${PROM_URL} -t ${TOKEN}
 ```

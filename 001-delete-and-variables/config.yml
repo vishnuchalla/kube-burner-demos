@@ -24,11 +24,18 @@ jobs:
           podReplicas: 2
           image: quay.io/cloud-bulldozer/nginx:latest
 
+      - objectTemplate: templates/secret.yml
+        replicas: 1
+        inputVars:
+          secretData: |
+            This is the body
+            of a secret
+
 
   - name: delete-stuff
     jobIterations: 10
-    qps: 3
-    burst: 3
+    qps: 5
+    burst: 5
     jobType: delete
     waitForDeletion: true
     objects:

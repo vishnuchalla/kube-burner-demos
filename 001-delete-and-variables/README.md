@@ -9,10 +9,10 @@ inputVars:
   foo: bar
 ```
 
-Explain how functions from [sprig](http://masterminds.github.io/sprig/) can be called
+Explain how functions from [sprig](http://masterminds.github.io/sprig/) can be called, [working example](templates/secret.yml)
 
 ```shell
 kube-burner init -c config.yml
-# Demonstrate that all resources have been deleted in the namespace
-oc get pod,secret -n create-stuff
+# Demonstrate that only the deployments have been deleted in the namespace
+oc get deploy,secret -n create-stuff
 ```

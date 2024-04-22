@@ -12,5 +12,5 @@ time="2024-01-18 01:07:01" level=info msg="kube-burner-demo: ContainersReady 50t
 time="2024-01-18 01:07:01" level=info msg="kube-burner-demo: Initialized 50th: 0 99th: 0 max: 0 avg: 0" file="pod_latency.go:235"           
 time="2024-01-18 01:07:01" level=error msg="podLatency: P99 Ready latency (3.00s) higher than configured threshold: 2s" file="job.go:189"
 
-# Bump initialDelaySeconds in pod and re-run
+# Bump initialDelaySeconds in the pod and re-run to demonstrate how pod ready latencies got increased
 ```

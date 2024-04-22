@@ -13,7 +13,7 @@ jobs:
     preLoadPeriod: 10s
     cleanup: true                # Cleanup resources from previous runs
     namespaceLabels:             # Add additional labels to the created namespaces
-      security.openshift.io/scc.podSecurityLabelSync: false
+      security.openshift.io/scc.podSecurityLabelSync: false   # Required in OpenShift clusters
       pod-security.kubernetes.io/enforce: privileged
       pod-security.kubernetes.io/audit: privileged
       pod-security.kubernetes.io/warn: privileged

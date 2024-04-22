@@ -1,10 +1,11 @@
 ---
+indexers:
+  - esServers: ["{{.ES_SERVER}}"]                # The elasticsearch endpoint is configured here
+    defaultIndex: kube-burner                    # index name
+    type: elastic                                # local, elasticsearch or opensearch are supported
 global:
   gc: true
   indexerConfig:
-    esServers: ["{{.ES_SERVER}}"]                # The elasticsearch endpoint is configured here
-    defaultIndex: kube-burner                    # index name
-    type: elastic                                # local, elasticsearch or opensearch are supported
   measurements:
     - name: podLatency
       thresholds:

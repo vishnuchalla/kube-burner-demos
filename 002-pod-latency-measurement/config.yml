@@ -31,3 +31,4 @@ jobs:
         inputVars:
           podReplicas: 2 
           image: quay.io/cloud-bulldozer/nginx:latest
+          initialDelaySeconds: 2

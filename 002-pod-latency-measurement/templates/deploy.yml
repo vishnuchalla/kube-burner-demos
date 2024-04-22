@@ -18,5 +18,5 @@ spec:
         readinessProbe:
           tcpSocket:
             port: 8080
-          initialDelaySeconds: 10
+          initialDelaySeconds: {{.initialDelaySeconds}}
           periodSeconds: 10

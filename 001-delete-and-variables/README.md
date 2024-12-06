@@ -14,5 +14,5 @@ Explain how functions from [sprig](http://masterminds.github.io/sprig/) can be c
 ```shell
 kube-burner init -c config.yml
 # Demonstrate that only the deployments have been deleted in the namespace
-oc get deploy,secret -n create-stuff
+kubectl get deploy,secret -n create-stuff
 ```

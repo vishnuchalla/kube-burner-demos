@@ -1,6 +1,6 @@
 Running kube-burner with podLatency measurement
 
-```/tmp/kube-burner init -c config.yml```{{exec}}
+`/tmp/kube-burner init -c config.yml`{{exec}}
 
 
 Check log lines

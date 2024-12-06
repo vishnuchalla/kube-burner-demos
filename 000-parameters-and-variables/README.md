@@ -19,7 +19,7 @@ kube-burner init -c config.yml --uuid=demo
 kubectl get ns -l kube-burner-job=kube-burner-demo
 kubectl get ns -l kube-burner-uuid=demo
 # Listing all deployments within a namespace
-kubectl get deploy -n kube-burner-demo-4
+kubectl get deploy -n kube-burner-demo-0
 # Listing all deployments using a label selector
 kubectl get deploy -A -l kube-burner-job=kube-burner-demo
 

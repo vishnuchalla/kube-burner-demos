@@ -11,7 +11,7 @@ kubectl get ns -l kube-burner-uuid=demo
 
 List all deployments within a namespace
 
-`kubectl get deploy -n kube-burner-demo-4`{{exec}}
+`kubectl get deploy -n kube-burner-demo-0`{{exec}}
 
 List all deployments using label selector
 

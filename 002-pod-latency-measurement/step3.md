@@ -1,10 +1,11 @@
 Running kube-burner with podLatency measurement
-```plain
-/tmp/kube-burner init -c config.yml
-```{{exec}}
+
+```/tmp/kube-burner init -c config.yml```{{exec}}
+
 
 Check log lines
-```plain
+
+```
 time="2024-01-18 01:07:01" level=info msg="Evaluating latency thresholds" file="metrics.go:48"           
 time="2024-01-18 01:07:01" level=info msg="kube-burner-demo: Ready 50th: 2000 99th: 3000 max: 3000 avg: 1930" file="pod_latency.go:235"     
 time="2024-01-18 01:07:01" level=info msg="kube-burner-demo: PodScheduled 50th: 0 99th: 0 max: 0 avg: 0" file="pod_latency.go:235"          

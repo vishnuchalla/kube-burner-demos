@@ -1,4 +1,4 @@
-## Delete jobs and variables
+## How delete Jobs works
 
 Explain how a delete job works and how labelSelector, apiVersion and kind need to be configured
 

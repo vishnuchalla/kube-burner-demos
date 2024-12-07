@@ -21,7 +21,33 @@ Manually destroy created stuff
 
 `/tmp/kube-burner destroy --uuid=demo`{{exec}}
 
-Set GC=true and re-run
+Set GC=true in your `config.yml` and re-run:
+
+```yaml
+global:
+  gc: true                      # Garbage collection set to true
+jobs:
+  - name: kube-burner-demo       # job name
+    namespace: kube-burner-demo  # namespace prefix
+    jobIterations: 1            # number of job iterations
+    qps: 5                       # API request rate
+    burst: 5
+    namespacedIterations: true   # Create a new namespace per job iteration
+    waitWhenFinished: true       # Wait for pods to be running before finishing the job
+    preLoadImages: true          # Preload pod images
+    preLoadPeriod: 10s
+    cleanup: true                # Cleanup resources from previous runs
+    namespaceLabels:             # Add additional labels to the created namespaces
+      pod-security.kubernetes.io/enforce: privileged
+      pod-security.kubernetes.io/audit: privileged
+      pod-security.kubernetes.io/warn: privileged
+    objects:
+      - objectTemplate: templates/deploy.yml
+        replicas: 10
+        inputVars:
+          podReplicas: 1 
+          image: quay.io/cloud-bulldozer/nginx:latest
+```
 
 `/tmp/kube-burner init -c config.yml`{{exec}}
 
